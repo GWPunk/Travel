@@ -9,5 +9,17 @@ module.exports = {
       config.resolve.alias
       .set('styles',resolve('src/assets/styles'))
       // 这里只写了两个，你可以自己再加，按这种格式.set('', resolve(''))
+  },
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {//重写路径
+          "^/api": '/mock'//代理路径
+      }
+      },
+    }
   }
 };
