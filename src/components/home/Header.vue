@@ -31,7 +31,7 @@ export default {
       float: left;
       .back-icon
         text-align: center;
-        font-size: .4rem
+        font-size: .3rem
     .header-input
       background:#fff;
       height: .64rem;
