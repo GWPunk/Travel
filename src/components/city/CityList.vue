@@ -31,15 +31,9 @@
         <div class="title border-topbottom">{{key}}</div>
         <div class="city-list">
           <div 
-<<<<<<< HEAD
-          class="city border-bottom" 
-          v-for="innerItem in item" 
-          :key="innerItem.id"
-=======
             class="city border-bottom" 
             v-for="innerItem in item" 
             :key="innerItem.id"
->>>>>>> city-ajax
           >
             {{innerItem.name}}</div>
         </div>
@@ -63,9 +57,7 @@ export default {
     hot: Array
   },
   mounted() {
-    this.scroll = new Bscroll(this.$refs.wrapper)
-    console.log(this.console);
-    
+    this.scroll = new Bscroll(this.$refs.wrapper) 
   },
 }
 
