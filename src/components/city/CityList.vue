@@ -13,19 +13,33 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wraper" v-for="item in hot" :key="item.id">
+          <div 
+            class="button-wraper" 
+            v-for="item in hot" 
+            :key="item.id"
+          >
             <div class="city-button">{{item.name}}</div>
           </div>
-        </div>
-        
+        </div>    
       </div>
-      <div class="area" v-for="(item, key) in cities" :key="key">
+
+      <div 
+        class="area" 
+        v-for="(item, key) in cities" 
+        :key="key"
+      >
         <div class="title border-topbottom">{{key}}</div>
         <div class="city-list">
           <div 
+<<<<<<< HEAD
           class="city border-bottom" 
           v-for="innerItem in item" 
           :key="innerItem.id"
+=======
+            class="city border-bottom" 
+            v-for="innerItem in item" 
+            :key="innerItem.id"
+>>>>>>> city-ajax
           >
             {{innerItem.name}}</div>
         </div>
@@ -39,6 +53,11 @@ import Bscroll from 'better-scroll'
 
 export default {
   name: 'CityList',
+  data () {
+    return {
+      scroll: null
+    }
+  },
   props: {
     cities: Object,
     hot: Array
@@ -85,9 +104,10 @@ export default {
           border .02rem solid #ccc
           padding .1rem 0
           border-radius 0.06rem
-    .city
-      line-height .76rem
-      padding-left .2rem
+    .city-list 
+      .city
+        line-height .76rem
+        padding-left .2rem
 
   
 </style>
