@@ -35,13 +35,11 @@ export default {
     },
     getHomeInfoSucc (res) {
       const content = res.data;
-      console.log(content);
+      // console.log(content);
       if(content.ret && content.data){
         const data = content.data;
         this.cities = data.cities;
-        console.log(data.cities);
         this.hotCities = data.hotCities;
-        console.log(data.hotCities);
       }
 
     }

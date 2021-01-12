@@ -22,7 +22,11 @@
       <div class="area" v-for="(item, key) in cities" :key="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="city-list">
-          <div class="city border-bottom" v-for="innerItem in item" :key="innerItem.id">
+          <div 
+          class="city border-bottom" 
+          v-for="innerItem in item" 
+          :key="innerItem.id"
+          >
             {{innerItem.name}}</div>
         </div>
       </div>
@@ -41,6 +45,8 @@ export default {
   },
   mounted() {
     this.scroll = new Bscroll(this.$refs.wrapper)
+    console.log(this.console);
+    
   },
 }
 
