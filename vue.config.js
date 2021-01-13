@@ -8,6 +8,7 @@ module.exports = {
   chainWebpack: (config) => {
       config.resolve.alias
       .set('styles',resolve('src/assets/styles'))
+      .set('common',resolve('src/common'))
       // 这里只写了两个，你可以自己再加，按这种格式.set('', resolve(''))
   },
   devServer: {
