@@ -39,6 +39,9 @@ export default {
   activated() {
     window.addEventListener('scroll', this.changeOpacity)
   },
+  deactivated() {
+    window.removeEventListener('scroll', this.changeOpacity) //对全局事件解绑
+  },
 }
 
 </script>
