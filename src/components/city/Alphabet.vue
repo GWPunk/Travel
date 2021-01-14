@@ -1,18 +1,18 @@
 <template>
-  <ul class="list">
-    <li 
-      class="item" 
-      v-for="item in letters" 
-      :key="item"
-      :ref="item"
-      @touchstart.prevent="hangleTouchStart"
-      @touchmove="hangleTouchMove"
-      @touchend="hangleTouchEnd"
-      @click="handleLetterClick"
-      >
-      {{item}}
-    </li>
-  </ul>
+    <ul class="list" v-show="isShow">
+      <li 
+        class="item" 
+        v-for="item in letters" 
+        :key="item"
+        :ref="item"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="handleTouchEnd"
+        @click="handleLetterClick"
+        >
+        {{item}}
+      </li>
+    </ul>
 </template>
 
 <script>
@@ -23,6 +23,7 @@ export default {
       isTouch: false,
       startY: 0,
       timer: null,
+      isShow: true,
     }
   },
   props: {
@@ -44,10 +45,10 @@ export default {
     handleLetterClick (e) {
       this.$emit('change', e.target.innerText)
     },
-    hangleTouchStart () {
+    handleTouchStart () {
       this.isTouch = true
     },
-    hangleTouchMove (e) {
+    handleTouchMove (e) {
       if(this.isTouch) {
         if (this.timer) {
           clearTimeout(this.timer)
@@ -61,9 +62,20 @@ export default {
         }, 16)   
       }
     },
-    hangleTouchEnd () {
+    handleTouchEnd () {
       this.isTouch = false
     },
+  },
+  mounted() {
+    //解决安卓端软键盘弹起导致absolute定位上移的问题
+    const WIN_HEIGHT = window.innerHeight
+    window.addEventListener('resize', () => {
+      if(window.innerHeight < WIN_HEIGHT){
+        this.isShow = false
+      }else{
+        this.isShow = true
+      }
+    })
   },
 }
 
@@ -77,7 +89,7 @@ export default {
     position absolute
     right 0
     top 1.58rem
-    bottom 0 
+    bottom 0
     width .4rem
     .item
       line-height .4rem

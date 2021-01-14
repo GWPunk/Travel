@@ -72,7 +72,10 @@ export default {
     ...mapActions(['changeCity'])
   },
   mounted() {
-    this.scroll = new Bscroll(this.$refs.wrapper) 
+    this.scroll = new Bscroll(this.$refs.wrapper, {
+      click: true, // 处理在better-scroll在安卓手机上不能点击的问题
+      tap: true,
+    }) 
   },
   watch: {
     letter () {
