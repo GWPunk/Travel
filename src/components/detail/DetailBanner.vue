@@ -1,16 +1,16 @@
 <template>
   <div>
     <div class="banner" @click="handleClick">
-      <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg">
+      <img class="banner-img" :src="bannerImg">
       <div class="banner-info">
-        <div class="banner-title">大连圣亚海洋世界(AAAA景区)</div>
+        <div class="banner-title">{{sightName}}</div>
         <div class="banner-number">
           <span class="iconfont back-icon">&#xe692;</span>
-          39
+          {{gallaryImgs.length}}
         </div>
       </div>
     </div>
-    <common-gallery :imgList="imgList" @close="handleClose" v-show="isShow"></common-gallery>
+    <common-gallery :imgList="gallaryImgs" @close="handleClose" v-show="isShow"></common-gallery>
   </div>
 </template>
 
@@ -18,10 +18,14 @@
 import CommonGallery from 'common/gallery/Gallery'
 export default {
   name: 'Banner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array,
+  },
   data () {
     return {
       isShow: false,
-      imgList: ["http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_800x800_70debc93.jpg", "http://img1.qunarzz.com/sight/p0/1709/76/7691528bc7d7ad3ca3.img.png_800x800_9ef05ee7.png"]
     }
   },
   methods: {
@@ -69,6 +73,5 @@ export default {
         margin-top .14rem
         .back-icon
           font-size .24rem
-
 
 </style>
