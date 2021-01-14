@@ -25,9 +25,10 @@ export default {
   },
   methods: {
     changeOpacity () {
-      const scrollTop = document.documentElement.scrollTop
-      if (scrollTop > 60) {
-        let opacity = scrollTop / 140;
+      const top = document.documentElement.scrollTop
+      console.log(top);
+      if (top > 60) {
+        let opacity = top / 140;
         opacity = (opacity > 1) ? 1 : opacity;
         this.styleOpacity = {opacity};
         this.isShow = false
