@@ -4,7 +4,7 @@
       <div class="area">
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
-          <div class="button-wraper">
+          <div class="button-wraper" @click="handleCityClick(city)">
             <div class="city-button">{{this.city}}</div>
           </div>
         </div>
