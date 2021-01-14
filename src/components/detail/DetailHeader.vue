@@ -26,7 +26,6 @@ export default {
   methods: {
     changeOpacity () {
       const top = document.documentElement.scrollTop
-      console.log(top);
       if (top > 60) {
         let opacity = top / 140;
         opacity = (opacity > 1) ? 1 : opacity;
@@ -37,11 +36,11 @@ export default {
       }
     }
   },
-  activated() {
+  mounted () {
     window.addEventListener('scroll', this.changeOpacity)
   },
-  deactivated() {
-    window.removeEventListener('scroll', this.changeOpacity) //对全局事件解绑
+  destroyed () {
+    window.removeEventListener('scroll', this.changeOpacity)
   },
 }
 
