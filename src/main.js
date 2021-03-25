@@ -15,7 +15,7 @@ Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 
 document.addEventListener('DOMContentLoaded', function () {
-  FastClick.attach(document.body);
+  fastClick.attach(document.body);
 }, false);
 
 new Vue({
